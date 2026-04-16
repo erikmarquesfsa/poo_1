@@ -27,7 +27,15 @@ class Recado{
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         return $stmt;
-}
+    }
+
+    public function curtir($id){
+        $sql = "UPDATE {$this->table} SET curtidas = curtidas + 1 WHERE id = :id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(":id",$id);
+
+        return $stmt->execute();
+    }
 
 }
 
