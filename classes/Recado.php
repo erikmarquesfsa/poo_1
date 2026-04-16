@@ -1,5 +1,5 @@
 <?php
-require_once "config/Conexao.php";
+require_once "../config/Conexao.php";
 
 class Recado{
     private $conn;

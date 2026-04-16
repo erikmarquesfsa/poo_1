@@ -1,5 +1,5 @@
 <?php
-require_once "classes/Recado.php";
+require_once "../classes/Recado.php";
 $recado = new Recado();
 $lista = $recado->listar();
 ?>
@@ -12,7 +12,7 @@ $lista = $recado->listar();
 </head>
 <body>
     <h2>Novo Recado</h2>
-    <form action="actions/salvar.php" method="post">
+    <form action="../actions/salvar.php" method="post">
         <input type="text" name="nome" required>
         <textarea name="mensagem" required></textarea>
         <button type="submit">Enviar</button>
@@ -25,6 +25,9 @@ $lista = $recado->listar();
             echo " | ";
             echo $row['mensagem'];
             echo "</p></b>";
+            echo "Curtidas: ";
+            echo $row['curtidas'];
+            echo "<br><a href='../actions/curtir.php?id=".$row['id']."'>Curtir</a>";
         }
     ?>
 </body>
